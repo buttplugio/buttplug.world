@@ -1,9 +1,10 @@
+before_install:
+- openssl aes-256-cbc -K $encrypted_13c4689d1169_key -iv $encrypted_13c4689d1169_iv
+  -in deploy_rsa.enc -out deploy_rsa -d
+install: true
 deploy:
   provider: script
   skip_cleanup: true
   script: rsync -r --quiet index.html buttplugworld@buttplug.world:/home/buttplugworld/beta.buttplug.world
   on:
     branch: master
-before_install:
-- openssl aes-256-cbc -K $encrypted_13c4689d1169_key -iv $encrypted_13c4689d1169_iv
-  -in deploy_rsa.enc -out deploy_rsa -d
