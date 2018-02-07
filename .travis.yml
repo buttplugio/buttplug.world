@@ -3,6 +3,9 @@ before_install:
   -in deploy_rsa.enc -out deploy_rsa -d
 install: true
 script: true
+addons:
+  ssh_known_hosts:
+  - buttplug.world
 deploy:
   provider: script
   skip_cleanup: true
