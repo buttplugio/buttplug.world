@@ -9,14 +9,18 @@ addons:
   ssh_known_hosts:
   - buttplug.world
 deploy:
-  provider: script
-  skip_cleanup: true
-  script: rsync -r --quiet index.html .htaccess buttplugworld@buttplug.world:/home/buttplugworld/buttplug.world
-  on:
-    branch: release
-deploy:
-  provider: script
-  skip_cleanup: true
-  script: rsync -r --quiet index.html .htaccess buttplugworld@buttplug.world:/home/buttplugworld/beta.buttplug.world
-  on:
-    branch: beta
+  - provider: script
+    skip_cleanup: true
+    script: rsync -r --quiet index.html .htaccess buttplugworld@buttplug.world:/home/buttplugworld/buttplug.world
+    on:
+      branch: release
+  - provider: script
+    skip_cleanup: true
+    script: rsync -r --quiet index.html .htaccess buttplugworld@buttplug.world:/home/buttplugworld/beta.buttplug.world
+    on:
+      branch: beta
+  - provider: pages
+    skip_cleanup: true
+    github-token: $GITHUB_TOKEN
+    on:
+      branch: master
