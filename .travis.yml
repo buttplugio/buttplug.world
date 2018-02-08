@@ -11,6 +11,12 @@ addons:
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -r --quiet index.html buttplugworld@buttplug.world:/home/buttplugworld/beta.buttplug.world
+  script: rsync -r --quiet index.html .htaccess buttplugworld@buttplug.world:/home/buttplugworld/buttplug.world
   on:
-    branch: master
+    branch: release
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: rsync -r --quiet index.html .htaccess buttplugworld@buttplug.world:/home/buttplugworld/beta.buttplug.world
+  on:
+    branch: beta
