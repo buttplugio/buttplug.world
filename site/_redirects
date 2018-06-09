@@ -1,0 +1,5 @@
+# Redirect subdirectories to new subdomains
+/tutorial/ http://tutorial.buttplug.world
+/syncydink/ http://syncydink.buttplug.world
+/kiiroo-firmware-loader/ http://kiiroo-firmware-loader.buttplug.world
+/playground/ http://playground.buttplug.world
